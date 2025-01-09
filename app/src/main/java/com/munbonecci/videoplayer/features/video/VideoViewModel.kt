@@ -18,6 +18,8 @@ import javax.inject.Inject
 class VideoViewModel @Inject constructor(private val getVideosUseCase: GetVideosUseCase) :
     ViewModel() {
     private val _uiVideosState = MutableStateFlow(VideosUIState())
+    // StateFlow 始终存储最新的值，订阅者可以随时获取最新状态。
+    // 如果你正在处理 持续的状态更新（如 UI 状态），选择 StateFlow。如果你需要 广播事件或灵活的事件处理（如通知或信号），选择 SharedFlow。
     val uiVideosState: StateFlow<VideosUIState> = _uiVideosState.asStateFlow()
 
     init {

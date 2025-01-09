@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetVideosUseCase @Inject constructor(private val context: Context) {
+
+    // 在 Kotlin 中，invoke 是一个特殊的运算符方法，允许你像调用函数一样调用对象。
     operator fun invoke(): Flow<Resource<List<VideoEntity>>> = flow {
         emit(Resource.Loading())
         emit(Resource.Success(getVideosFakeData))
@@ -33,39 +35,6 @@ val getVideosFakeData: List<VideoEntity>
                 1,
                 "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
                 "Bunny",
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            )
-        ),
-        VideoEntity(
-            name = "2",
-            description = "Video for Test 2",
-            extraInfo = "#extra @test2",
-            videoResultEntity = VideoResultEntity(
-                2,
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                "Bunny 2",
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            )
-        ),
-        VideoEntity(
-            name = "3",
-            description = "Video for Test 3",
-            extraInfo = "#extra @test3",
-            videoResultEntity = VideoResultEntity(
-                3,
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                "Bunny 3",
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            )
-        ),
-        VideoEntity(
-            name = "4",
-            description = "Video for Test 4",
-            extraInfo = "#extra @test4",
-            videoResultEntity = VideoResultEntity(
-                3,
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                "Bunny 4",
                 "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
             )
         )
